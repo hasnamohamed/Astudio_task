@@ -37,7 +37,15 @@ class Job extends Model
     {
         return $this->belongsToMany(Location::class, 'job_location');
     }
+    public function attributeValues()
+    {
+        return $this->hasMany(JobAttributeValue::class);
+    }
 
+    public function scopePublished(Builder $query)
+    {
+        return $query->where('status', 'published');
+    }
     public function categories()
     {
         return $this->belongsToMany(Category::class, 'job_category');
