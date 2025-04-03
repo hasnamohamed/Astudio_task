@@ -8,6 +8,7 @@ Returns an list of jobs with advanced filtering capabilities.
 
 **Query Parameters:**
 - `filter`: Filter expression using the syntax described below
+- `per_page`: Number of items per page (default: 15)
 
 ## Filter Syntax
 
