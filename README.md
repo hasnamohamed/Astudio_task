@@ -45,3 +45,10 @@ The filter parameter supports complex filtering with the following syntax:
 
 2. Remote jobs in New York with 5+ years experience:
    `/api/jobs?filter=(is_remote=true OR locations IS_ANY (New York)) AND attribute:years_experience>=5`
+
+### Setup
+1. git clone [https://github.com/hasnamohamed/Astudio_task]
+2. composer install
+3. Configure .env
+4. php artisan migrate --seed
+5. php artisan serve
