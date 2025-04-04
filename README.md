@@ -41,10 +41,7 @@ The filter parameter supports complex filtering with the following syntax:
 ### Examples
 
 1. Full-time jobs requiring PHP or JavaScript:
-   `/api/jobs?filter=(job_type=full-time AND languages HAS_ANY (PHP,JavaScript))`
-
-2. Remote jobs in New York with 5+ years experience:
-   `/api/jobs?filter=(is_remote=true OR locations IS_ANY (New York)) AND attribute:years_experience>=5`
+   `/api/jobs?filter=(job_type=full-time AND (languages HAS_ANY (PHP,JavaScript))) AND (locations IS_ANY (New York,Remote)) AND attribute:years_experience>=3&per_page=10`
 
 ### Setup
 1. git clone [https://github.com/hasnamohamed/Astudio_task]
