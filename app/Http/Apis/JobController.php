@@ -24,7 +24,9 @@ class JobController extends Controller
             $this->filterService->applyFilters($query, $request->filter);
         }
 
-        $jobs = $query->get();
+        // Add pagination with default 15 items per page
+        $perPage = $request->input('per_page', 15);
+        $jobs = $query->paginate($perPage);
 
         return response()->json($jobs);
     }
