@@ -12,16 +12,21 @@ class Attribute extends Model
     protected $fillable = ['name', 'type', 'options'];
 
     protected $casts = [
-        'options' => 'array', // Ensures JSON is stored as an array
+        'options' => 'array',
     ];
 
-//    public function values()
-//    {
-//        return $this->hasMany(JobAttributeValue::class);
-//    }
     public function jobs()
     {
         return $this->belongsToMany(Job::class, 'job_attribute_values')
             ->withPivot('value');
+    }
+    public function jobAttributeValues()
+    {
+        return $this->hasMany(JobAttributeValue::class);
+    }
+
+    public function values()
+    {
+        return $this->jobAttributeValues();
     }
 }

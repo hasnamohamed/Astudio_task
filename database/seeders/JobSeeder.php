@@ -29,12 +29,10 @@ class JobSeeder extends Seeder
             'updated_at' => now()
         ]);
 
-        // Create attributes
         $hourlyRate = Attribute::firstOrCreate(['name' => 'Hourly Rate', 'type' => 'number']);
         $timeZone = Attribute::firstOrCreate(['name' => 'Time Zone', 'type' => 'text']);
         $yearsOfExperience = Attribute::firstOrCreate(['name' => 'years_experience', 'type' => 'number']);
 
-        // Assign values to job
         JobAttributeValue::create(['job_id' => $job->id, 'attribute_id' => $hourlyRate->id, 'value' => '20']);
         JobAttributeValue::create(['job_id' => $job->id, 'attribute_id' => $timeZone->id, 'value' => 'GMT+3']);
         JobAttributeValue::create(['job_id' => $job->id, 'attribute_id' => $yearsOfExperience->id, 'value' => '3']);

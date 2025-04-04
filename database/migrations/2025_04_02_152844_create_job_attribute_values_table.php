@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('job_id')->constrained('jobs')->onDelete('cascade');
             $table->foreignId('attribute_id')->constrained('attributes')->onDelete('cascade');
-            $table->string('value'); // Example: "10 USD/hour", "GMT+3"
+            $table->string('value');
             $table->timestamps();
         });
     }

@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('attributes', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); // Example: "Hourly Rate", "Time Zone"
+            $table->string('name');
             $table->enum('type', ['text', 'number', 'boolean', 'date', 'select']);
-            $table->json('options')->nullable(); // Stores JSON options for 'select' type
+            $table->json('options')->nullable();
             $table->timestamps();
         });
     }
