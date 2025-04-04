@@ -1,31 +1,11 @@
 <?php
 namespace App\Services;
 
-use App\Models\Job;
-use App\Models\JobAttributeValue;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use App\Models\Attribute;
 
 class JobFilterService
 {
-    protected array $filterOperators = [
-        '=' => '=',
-        '!=' => '!=',
-        '>' => '>',
-        '<' => '<',
-        '>=' => '>=',
-        '<=' => '<=',
-        'LIKE' => 'LIKE',
-        'IN' => 'IN',
-        'HAS_ANY' => 'HAS_ANY',
-        'IS_ANY' => 'IS_ANY',
-        'EXISTS' => 'EXISTS',
-    ];
-
-//    protected array $logicalOperators = ['AND', 'OR'];
-
     public function applyFilters(Builder $query, string $filterString): Builder
     {
         $filters = $this->parseFilterString($filterString);
